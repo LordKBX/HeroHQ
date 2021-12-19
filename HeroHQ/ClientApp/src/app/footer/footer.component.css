@@ -1,0 +1,52 @@
+:host {
+  background: #862e20;
+  color: #ffffff;
+  padding-top: 20px;
+  display: table-row;
+}
+:host > .container {
+  margin-top: 20px;
+}
+.hr {
+  background-color: #958684;
+}
+.hidden-xs{ text-align: center; }
+.btn{ display: inline-block; }
+.footer-hero-wrap {
+  -webkit-display: flex;
+  -moz-display: flex;
+  -ms-display: flex;
+  display: flex;
+
+  -webkit-align-content: flex-start;
+  -moz-align-content: flex-start;
+  -ms-align-content: flex-start;
+  align-content: flex-start;
+
+  -webkit-align-items: stretch;
+  -moz-align-items: stretch;
+  -ms-align-items: stretch;
+  align-items: stretch;
+}
+.footer-hero {
+  /*display: flex;*/
+  height: calc(100% - 40px);
+  background-image: url("/assets/images/Mercy_portrait_flip.png");
+  background-repeat: no-repeat;
+  background-position: bottom left;
+    background-size: contain;
+    margin-top: 8px;
+}
+
+@media (max-width: 991px) {
+  .footer-hero {
+    height: calc(100% - 65px);
+    margin-top: 0;
+  }
+}
+
+.copyright {
+  color: #e28913;
+  text-align: center;
+  margin: 1em auto;
+}

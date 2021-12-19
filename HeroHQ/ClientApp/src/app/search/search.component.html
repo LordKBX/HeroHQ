@@ -1,0 +1,40 @@
+<h1 class="page-title">Tout les héros</h1>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel">
+            <div class="row imgback">
+                <div class="hidden-xs col-sm-3"></div>
+                <div class="col-xs-12 col-sm-9 fp">
+                    <div class="filters">
+                        <!-- Formulaire -->
+                        <form action="#" novalidate="">
+                            <div class="filter">
+                                <p><label for="">Nom du héro</label></p>
+                                <p><input type="text" placeholder="ex: Reaper" [(ngModel)]="searchPattern" [ngModelOptions]="{standalone: true}"></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="heroes row">
+      <div *ngFor="let hero of searchHeroList" class="hero">
+          <a routerLink="/hero/{{hero.Id}}">
+
+              <img *ngIf="loading['_'+hero.Id]" src="/assets/images/loading.gif" alt="loading" />
+              <img [hidden]="loading['_'+hero.Id]" (load)="loading['_'+hero.Id] = false" src="{{hero.Photo}}" alt="{{hero.Nom}}" width="150" height="175" />
+              <div class="bot">
+                  <p class="name">{{hero.Nom}}</p>
+              </div>
+          </a>
+      </div>
+    </div>
+
+    <!--<div class="row showmore">
+        <div class="col-xs-12">
+            <button type="button" class="btn btn_color1"><span class="glyphicon glyphicon-chevron-down"></span>Afficher d'avantage</button>
+        </div>
+    </div>-->
+</div>

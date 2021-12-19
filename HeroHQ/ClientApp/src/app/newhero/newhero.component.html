@@ -1,0 +1,57 @@
+<h1 class="page-title">Nouvelle candidature</h1>
+<section class="section">
+    <form action="#">
+        <div class="row">
+            <div class="col-xs-6">
+                <p class="line">
+                    <label for="">Quel est votre nom de héro?</label>
+                    <input type="text" class="mb0 wide" required id="newhero_name">
+                </p>
+                <p class="line">
+                    <label for="">Quel âge avez vous?</label>
+                    <input type="number" class="mb0 wide" required id="newhero_age" min="16" max="99999999" value="18">
+                </p>
+                <p class="line">
+                    <label for="">Quel est votre pouvoir?</label>
+                    <input type="text" class="mb0 wide" required id="newhero_power">
+                </p>
+                <p class="line">
+                    <label for="">Quel est votre citation de référance?</label>
+                    <input type="text" class="mb0 wide" required id="newhero_mantra">
+                </p>
+            </div>
+            <div class="col-xs-6">
+                <p class="line">
+                    <label for="">Photo du héro</label>
+                    <input type="file" class="mb0" id="file-input" (change)="cropImgFunc($event)">
+                </p>
+                <p class="line ac">
+                    <img class="current_img" id="imgPreview" src="assets/images/hero_img_placeholder.png" alt="Visuel hero" width="200" height="200">
+                </p>
+            </div>
+            <div class="col-xs-12">
+                <div class="hr mt2 mb2"></div>
+            </div>
+
+            <div class="col-xs-12 ac">
+                <button type="button" class="btn btn_color3 button_save" (click)="save()"><span class="glyphicon glyphicon-ok mr0"></span><span>Valider ma candidature</span></button>
+            </div>
+            <!-- Afficher au clic sur "valider ma recette" lorsque tout s'est bien déroulé -->
+            <!--<div class="col-xs-12">
+                <p class="ac mt2 tb">
+                    <span class="glyphicon glyphicon-thumbs-up color3"></span>
+                    <span>Votre recette a bien été ajoutée !</span>
+                </p>
+            </div>-->
+        </div>
+    </form>
+</section>
+<div id="previewAvatar" style="display:none">
+    <div class="previewWindow">
+        <img src="assets/images/cross.png" width="30" height="30" (click)="hidePreview()"/>
+        <div class="imgContainer">
+            <div class="result" id="inputImg"></div>
+        </div>
+        <div id="slider" class="ep-slider-bar"></div>
+    </div>
+</div>

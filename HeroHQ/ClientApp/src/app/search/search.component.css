@@ -1,0 +1,15 @@
+.heroes {
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+.hero{ display:inline-block; width:150px; margin: 5px; }
+
+.panel > .row {
+    background-image: url("../../assets/images/favicon.png");
+    /*
+  background-repeat: no-repeat;
+  background-position: 10% 50%;
+  background-size: 10% auto;
+  */
+}

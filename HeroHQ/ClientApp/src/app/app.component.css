@@ -1,0 +1,7 @@
+.nav-link {
+  font-size: large;
+}
+#wrapper{display: table; width:100%;}
+#wrapper header{display: table-row;width:100%;}
+#main{display: table-row; height: 100%;}
+

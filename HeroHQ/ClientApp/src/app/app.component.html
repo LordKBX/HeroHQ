@@ -1,0 +1,74 @@
+<div id="wrapper">
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <a routerLink="home" class="logo">
+                    <img src="assets/images/herohqbanner.png" alt="herohq banner" />
+                </a>
+                <div class="desc">
+                    <p>Besoin d'un héro?<br />Trouvez celui qu'il vous faut!</p>
+                    <p>
+                        <a class="link" routerLink="search"><strong>{{ HeroTotal }} héros</strong> à découvrir !</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <button type="button" id="mobile-menu-btn" (click)="menuMobileDisplay=!menuMobileDisplay" title="Menu">
+            <i class="glyphicon glyphicon-menu-hamburger"></i>
+        </button>
+    </header>
+
+    <main id="main">
+        <div class="container">
+            <div class="row">
+                <!-- Barre de navigation -->
+                <div class="col-sm-3" id="col-nav">
+                    <nav class="nav">
+                        <ul class="menu">
+                            <li class="page_hom">
+                                <a routerLinkActive="active" routerLink="home">
+                                    <span>Accueil</span>
+                                </a>
+                            </li>
+                            <li class="page_rec">
+                                <a routerLinkActive="active" routerLink="search">Recherche détaillée</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Home -->
+                <div class="col-xs-12 col-sm-9">
+                    <div class="content" id="content_home">
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <app-footer id="footer"></app-footer>
+
+    <!-- Menu Mobile -->
+    <div id="mobile_menu" [ngStyle]="{'display': menuMobileDisplay?'block':'none'}">
+        <!--
+        <button type="button" id="mobile-close-btn">
+            <i class="glyphicon glyphicon-remove"></i>
+        </button>
+        -->
+        <nav class="nav">
+            <ul class="menu">
+                <li class="page_hom">
+                    <a routerLinkActive="active" routerLink="home" (click)="menuMobileDisplay=!menuMobileDisplay">
+                        <span>Accueil</span>
+                    </a>
+                </li>
+                <li class="page_rec">
+                    <a routerLinkActive="active" routerLink="search" (click)="menuMobileDisplay=!menuMobileDisplay">Recherche détaillée</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

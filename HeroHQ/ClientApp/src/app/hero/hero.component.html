@@ -1,0 +1,26 @@
+<div *ngIf="!heroId">
+  <app-error [id]="errorId"></app-error>
+</div>
+
+  <div *ngIf="heroId">
+  <h1 class="page-title">Un héro en détail</h1>
+
+  <section class="section details">
+      <div class="row">
+          <div class="col-vxs-12 col-xs-6 col-sm-5">
+              <div class="avatar-wrap">
+                  <img *ngIf="loading" src="/assets/images/loading.gif" alt="loading" class="avatar" />
+                  <img [hidden]="loading" (load)="loading = false" src="{{heroData.Photo}}" alt="{{heroData.Nom}}" class="avatar" />
+              </div>
+          </div>
+          <div class="col-vxs-12 col-xs-6 col-sm-7">
+              <div class="infos">
+                  <h1 class="name">{{heroData.Nom}}</h1>
+                  <p><span><span class="fwb">Citation :</span> {{heroData.Citation}}</span></p>
+                  <p><span><span class="fwb">Âge :</span> {{heroData.Age}} ans</span></p>
+                  <p><span><span class="fwb">Pouvoir :</span> {{heroData.Pouvoir}}</span></p>
+              </div>
+          </div>
+      </div>
+  </section>
+</div>

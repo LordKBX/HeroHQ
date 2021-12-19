@@ -1,0 +1,18 @@
+<h1>
+  Error {{id}}
+</h1>
+<h2 *ngIf="(id==400)"> Bad Request </h2>
+<h2 *ngIf="(id==401)"> Unauthorized access </h2>
+<h2 *ngIf="(id==402)"> Forbidden access </h2>
+<h2 *ngIf="(id==403)"> Payment Required </h2>
+<h2 *ngIf="(id==404)"> Page not found </h2>
+<h2 *ngIf="(id==405)"> Method Not Allowed </h2>
+<h2 *ngIf="(id==406)"> Not Acceptable </h2>
+<h2 *ngIf="(id==414)"> Request-URI Too Long </h2>
+<h2 *ngIf="(id==421)"> Bad mapping / Misdirected Request </h2>
+<h2 *ngIf="(id==451)"> Unavailable For Legal Reasons </h2>
+
+<h2 *ngIf="(id==500)"> Internal Server Error </h2>
+<h2 *ngIf="(id==501)"> Not Implemented </h2>
+<h2 *ngIf="(id==503)"> Service Unavailable </h2>
+<h2 *ngIf="(id==509)"> Bandwidth Limit Exceeded </h2>
