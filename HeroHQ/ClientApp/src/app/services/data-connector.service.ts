@@ -2,7 +2,9 @@ import { Injectable, Inject } from '@angular/core';
 //import { Http } from '@angular/http';
 import { HttpClient, HTTP_INTERCEPTORS, HttpParams, HttpErrorResponse } from '@angular/common/http';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class DataConnectorService {
     private _jsonURL = 'assets/BDD_Hero.json';
 

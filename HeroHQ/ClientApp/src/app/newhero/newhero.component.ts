@@ -21,7 +21,7 @@ export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
     templateUrl: './newhero.component.html',
     styleUrls: ['./newhero.component.css'],
     encapsulation: ViewEncapsulation.None,
-    providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR]
+    providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR, DataConnectorService]
 })
 export class NewheroComponent implements OnInit {
     private slideValGlobal: number = 0.5;
