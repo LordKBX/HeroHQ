@@ -124,14 +124,8 @@ export class NewheroComponent implements OnInit {
     }
 
     save() {
-        console.log('Hero Name = ' + this.hero.nom);
-        var Nom = this.hero.nom;
-        var Age = this.hero.age;
-        var Pouvoir = this.hero.power;
-        var Citation = this.hero.mantra;
-        var Photo = (document.getElementById('imgPreview') as HTMLImageElement).src;
-
-        this.serviceData.register({ Nom: Nom, Age: Age, Pouvoir: Pouvoir, Citation: Citation, Photo: Photo })
+        var Photo = (document.getElementById('imgPreview') as HTMLImageElement).src.replace('assets/images/', '');
+        this.serviceData.register({ Nom: this.hero.nom, Age: this.hero.age, Pouvoir: this.hero.power, Citation: this.hero.mantra, Photo: Photo })
             .then(data => { if (data !== 0) this.router.navigate(['hero/'+data]); });
 
         //this.router.navigate(['home']);
