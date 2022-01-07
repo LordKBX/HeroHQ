@@ -1,4 +1,5 @@
-import { ApplicationModule, Component, OnInit, ViewEncapsulation  } from '@angular/core';
+import { ApplicationModule, Component, OnInit, ViewEncapsulation, forwardRef } from '@angular/core';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { DataConnectorService } from '../services/data-connector.service';
 import { Router } from '@angular/router';
 
@@ -6,16 +7,33 @@ import Cropper from 'cropperjs';
 
 var cropper: Cropper = null;
 
+const noop = () => {
+};
+
+export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => NewheroComponent),
+    multi: true
+};
+
 @Component({
     selector: 'app-newhero',
     templateUrl: './newhero.component.html',
     styleUrls: ['./newhero.component.css'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR]
 })
 export class NewheroComponent implements OnInit {
     private slideValGlobal: number = 0.5;
+    hero;
 
     constructor(private router: Router, private serviceData: DataConnectorService) {
+        this.hero = {
+            nom: "",
+            age: 18,
+            power: "",
+            mantra: ""
+        };
     }
 
     public cropImgFunc(event) {
@@ -106,10 +124,11 @@ export class NewheroComponent implements OnInit {
     }
 
     save() {
-        var Nom = (document.getElementById('newhero_name') as HTMLInputElement).value;
-        var Age = parseInt((document.getElementById('newhero_age') as HTMLInputElement).value);
-        var Pouvoir = (document.getElementById('newhero_power') as HTMLInputElement).value;
-        var Citation = (document.getElementById('newhero_mantra') as HTMLInputElement).value;
+        console.log('Hero Name = ' + this.hero.nom);
+        var Nom = this.hero.nom;
+        var Age = this.hero.age;
+        var Pouvoir = this.hero.power;
+        var Citation = this.hero.mantra;
         var Photo = (document.getElementById('imgPreview') as HTMLImageElement).src;
 
         this.serviceData.register({ Nom: Nom, Age: Age, Pouvoir: Pouvoir, Citation: Citation, Photo: Photo })
